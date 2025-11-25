@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AaAaAaAaAa</title>
+		<link href="styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<div id="loginScreen">
+		<p>yoh</p>
+			<label>Input Field (over 2 letters long)
+			<input onkeyup="validateDatData()" id="inputName" type="text">
+			<button onclick="validated()" id="funnyButton" disabled>Kondey Kong logging in</button>
+		</div>
+		<div id="homeScreen" hidden>
+			<h2 id="godAlmightyText"></h3>
+			<button onclick="logMeOut()">tthe logout button</button>
+		</div>
+		
+		<script>
+			let sInputName, targetElementMessage, targetElementLogin, targetElementMain, targetElementLogout, targetElementButton;
+			function validateDatData() {
+				targetElementMessage = document.getElementById("godAlmightyText")
+				targetElementLogin = document.getElementById("loginScreen")
+				targetElementMain = document.getElementById("homeScreen")
+				targetElementLogout = document.getElementById("logout")
+				targetElementButton = document.getElementById("funnyButton")
+				sInputName = document.getElementById("inputName").value
+				if(sInputName.length > 2) //if its writen as (id), then everything that is no 0, false, "", null or undefined will be set to true 
+				{
+					targetElementButton.disabled = false;
+				} else {
+					targetElementButton.disabled = true;
+				}
+			}
+			
+			function logMeOut() {
+				alert("Logging out... Goodbye, " + sInputName + "!")
+				targetElementLogin.style.display = "block"
+				targetElementMain.style.display = "none"
+			}
+			
+			function validated() {
+					alert("Validating data...")
+					alert("Data Validated! Hello " + sInputName + "!")
+					targetElementMessage.innerHTML = "Welcome to the home page, " + sInputName + "!<hr>";
+					targetElementLogin.style.display = "none";
+					targetElementMain.style.display = "block";
+				}
+		</script>
+	</body>
+</html>
